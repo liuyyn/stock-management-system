@@ -1,18 +1,26 @@
 import React, { Component } from "react";
-import { Table } from "reactstrap";
+import DataTable from "../common/DataTable";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { getProducts } from "../redux/actions/productActions";
 
 class AllProductsPage extends Component {
+  componentDidMount() {
+    this.props.getProducts();
+  }
+
   static propTypes = {
     products: PropTypes.object.isRequired,
+    getProducts: PropTypes.func.isRequired,
   };
 
   render() {
     return (
       <>
-        <h2>All products</h2>
-        <Table responsive>
+        <h2>MIKE EST POUSHON</h2>
+        <DataTable products={this.props.products.products} />
+
+        {/* <Table responsive>
           <thead>
             <tr>
               <th>Product</th>
@@ -34,7 +42,7 @@ class AllProductsPage extends Component {
               </tr>
             ))}
           </tbody>
-        </Table>
+        </Table> */}
       </>
     );
   }
@@ -44,4 +52,4 @@ const mapStateToProps = (state) => ({
   products: state.products,
 });
 
-export default connect(mapStateToProps)(AllProductsPage);
+export default connect(mapStateToProps, { getProducts })(AllProductsPage);

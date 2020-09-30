@@ -17,7 +17,7 @@ const DataTable = (props) => {
 
         <tbody>
           {props.products.map((product) => (
-            <tr key={product.id}>
+            <tr key={product._id}>
               <td>{product.name}</td>
               <td>{product.quantity}</td>
               <td>{product.price}</td>

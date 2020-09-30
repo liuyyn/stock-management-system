@@ -1,0 +1,30 @@
+{
+  "name": "stock-management",
+  "version": "1.0.0",
+  "description": "A stock management application for retail owners.",
+  "main": "server.js",
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuyunliu33/stock-management-system.git"
+  },
+  "author": "Yu Yun Liu",
+  "license": "ISC",
+  "homepage": "https://github.com/yuyunliu33/stock-management-system#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "concurrently": "^5.3.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

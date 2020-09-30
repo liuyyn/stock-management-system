@@ -5,10 +5,6 @@ import PropTypes from "prop-types";
 import DataTable from "../common/DataTable";
 
 class PerCompanyPage extends Component {
-  state = {
-    slug: null,
-  };
-
   static propTypes = {
     companies: PropTypes.array.isRequired,
     products: PropTypes.array.isRequired,

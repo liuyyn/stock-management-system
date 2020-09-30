@@ -3,13 +3,14 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { addProduct } from "../redux/actions/productActions";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { v4 as uuid } from "uuid";
 
 class AddProductPage extends Component {
   state = {
     name: "",
     quantity: null,
     price: null,
+    company: "",
+    category: "",
   };
 
   static propTypes = {
@@ -27,17 +28,18 @@ class AddProductPage extends Component {
     e.preventDefault();
 
     const newProduct = {
-      id: uuid(),
       name: this.state.name,
       quantity: this.state.quantity,
       price: this.state.price,
+      company: this.state.company,
+      category: this.state.category,
     };
 
     // console.log(this.state);
 
     this.props.addProduct(newProduct);
 
-    console.log(this.props.products.products);
+    // console.log(this.props.products.products);
   };
 
   render() {
@@ -65,7 +67,23 @@ class AddProductPage extends Component {
             <Input
               name="price"
               type="number"
+              step={0.01}
+              precision={2}
               placeholder="1.19"
+              onChange={this.onChange}
+            ></Input>
+
+            <Label for="product-company">Company</Label>
+            <Input
+              name="company"
+              placeholder="Metro"
+              onChange={this.onChange}
+            ></Input>
+
+            <Label for="product-category">Category</Label>
+            <Input
+              name="category"
+              placeholder="Drink"
               onChange={this.onChange}
             ></Input>
 
