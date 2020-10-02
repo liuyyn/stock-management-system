@@ -17,7 +17,7 @@ class AllProductsPage extends Component {
   render() {
     return (
       <>
-        <h2>MIKE EST POUSHON</h2>
+        <h2>All Products</h2>
         <DataTable products={this.props.products.products} />
 
         {/* <Table responsive>
